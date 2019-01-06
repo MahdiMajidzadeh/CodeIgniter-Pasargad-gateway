@@ -1,0 +1,5 @@
+preset: recommended
+risky: true
+finder:
+   not-name:
+    - "*.class.php"
