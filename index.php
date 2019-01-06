@@ -18,13 +18,13 @@ $result =  base64_encode($data); // base64_encode
 ?>
 
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
   <head>
   </head>
   <body>
 
-<form Id='Form2' Method='post' Action='https://pep.shaparak.ir/gateway.aspx'>
+<form id='form2' Method='post' name="form2" Action='https://pep.shaparak.ir/gateway.aspx'>
 	invoiceNumber<input type='text' name='invoiceNumber' value='<?= $invoiceNumber ?>' /><br />
 	invoiceDate<input type='text' name='invoiceDate' value='<?= $invoiceDate ?>' /><br />
 	amount<input type='text' name='amount' value='<?= $amount ?>' /><br />
@@ -34,7 +34,11 @@ $result =  base64_encode($data); // base64_encode
 	timeStamp<input type='text' name='timeStamp' value='<?= $timeStamp ?>' /><br />
 	action<input type='text' name='action' value='<?= $action ?>' /><br />
 	sign<input type='text' name='sign' value='<?= $result ?>' /><br />
-	<input type='submit' name='submit' value='Checkout' />
 </form>
+<script>
+window.onload = function(){
+  document.forms['form2'].submit();
+}
+</script>
   </body>
 </html>
