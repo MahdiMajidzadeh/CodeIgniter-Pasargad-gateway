@@ -1,20 +1,20 @@
 <?php 
-require_once("RSAProcessor.class.php"); 
+require_once 'RSAProcessor.class.php';
 
-$processor = new RSAProcessor("certificate.xml",RSAKeyType::XMLFile);
+$processor = new RSAProcessor('certificate.xml', RSAKeyType::XMLFile);
 $merchantCode = 111111; // كد پذيرنده
 $terminalCode = 111111; // كد ترمينال
 $amount = 1; // مبلغ فاكتور
-$redirectAddress = "http://???????/PHPSample/getresult.php"; 
+$redirectAddress = 'http://???????/PHPSample/getresult.php';
 
 $invoiceNumber = 16525; //شماره فاكتور
-$timeStamp = date("Y/m/d H:i:s");
-$invoiceDate = date("Y/m/d H:i:s"); //تاريخ فاكتور
-$action = "1003"; 	// 1003 : براي درخواست خريد 
-$data = "#". $merchantCode ."#". $terminalCode ."#". $invoiceNumber ."#". $invoiceDate ."#". $amount ."#". $redirectAddress ."#". $action ."#". $timeStamp ."#";
-$data = sha1($data,true);
-$data =  $processor->sign($data); // امضاي ديجيتال 
-$result =  base64_encode($data); // base64_encode 
+$timeStamp = date('Y/m/d H:i:s');
+$invoiceDate = date('Y/m/d H:i:s'); //تاريخ فاكتور
+$action = '1003'; 	// 1003 : براي درخواست خريد
+$data = '#'.$merchantCode.'#'.$terminalCode.'#'.$invoiceNumber.'#'.$invoiceDate.'#'.$amount.'#'.$redirectAddress.'#'.$action.'#'.$timeStamp.'#';
+$data = sha1($data, true);
+$data = $processor->sign($data); // امضاي ديجيتال
+$result = base64_encode($data); // base64_encode
 ?>
 
 
